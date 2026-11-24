@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>SHRESTH GPT — Premium AI Demo</title>
+<style>
+:root{--gold:#d8b45a;--gold2:#f4dfa0;--bg:#090909;--panel:#141414;--muted:#aaa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#342711 0,#111 34%,var(--bg) 70%);color:#f7f3e9;font-family:Inter,system-ui,Arial,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,5vw,64px);border-bottom:1px solid #ffffff18;position:sticky;top:0;background:#090909dd;backdrop-filter:blur(12px);z-index:2}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border:1px solid var(--gold);border-radius:13px;display:grid;place-items:center;color:var(--gold2);font-weight:900;font-size:21px;box-shadow:0 0 22px #d8b45a25}.brand b{letter-spacing:2px;font-size:16px}.brand small{display:block;color:var(--gold);font-size:10px;letter-spacing:2px;margin-top:3px}
+.pill{border:1px solid #d8b45a66;color:var(--gold2);border-radius:30px;padding:7px 12px;font-size:11px;letter-spacing:1px}
+main{width:min(850px,92vw);margin:45px auto 35px}.hero{text-align:center;margin-bottom:28px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:3px}.hero h1{font-size:clamp(34px,8vw,58px);line-height:1.05;margin:13px 0;background:linear-gradient(110deg,#fff4cf,#d8b45a 55%,#fff0b8);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:#b9b4a8;margin:0;font-size:14px}
+.chat{background:linear-gradient(145deg,#171717,#101010);border:1px solid #d8b45a42;border-radius:22px;overflow:hidden;box-shadow:0 20px 70px #0009}
+.chathead{padding:15px 18px;border-bottom:1px solid #ffffff12;display:flex;align-items:center;justify-content:space-between}.online{font-size:11px;color:#b9b4a8}.dot{display:inline-block;width:7px;height:7px;background:#a8c77a;border-radius:50%;margin-right:7px}
+.messages{padding:22px;min-height:300px;max-height:430px;overflow:auto;display:flex;flex-direction:column;gap:15px}.msg{max-width:85%;padding:13px 15px;border-radius:15px;line-height:1.55;font-size:14px;white-space:pre-wrap}.ai{align-self:flex-start;background:#222;border:1px solid #ffffff12;color:#f5f0e5;border-top-left-radius:4px}.user{align-self:flex-end;background:linear-gradient(135deg,#9e792f,#d8b45a);color:#17120a;border-top-right-radius:4px}
+.suggestions{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 17px}.suggestions button{background:#1c1a15;border:1px solid #8e713a;color:#e9d49d;border-radius:30px;padding:8px 12px;font-size:12px;cursor:pointer}.suggestions button:hover{background:#302718}
+.composer{display:flex;gap:10px;padding:15px;border-top:1px solid #ffffff12;background:#0d0d0d}.composer input{min-width:0;flex:1;background:#1a1a1a;border:1px solid #ffffff20;border-radius:13px;padding:14px;color:#fff;font-size:14px;outline:none}.composer input:focus{border-color:var(--gold)}.send{width:48px;border:0;border-radius:13px;background:linear-gradient(135deg,#b58b3d,#f0d58b);font-size:20px;cursor:pointer;color:#161108}.note{text-align:center;color:#777;font-size:11px;margin-top:14px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.feature{background:#121212;border:1px solid #ffffff14;border-radius:15px;padding:15px;text-align:center}.feature span{font-size:22px}.feature b{display:block;color:#e8d39b;font-size:13px;margin:8px 0 4px}.feature small{color:#999;font-size:11px}
+footer{text-align:center;color:#6f6a5d;font-size:11px;padding:25px}
+@media(max-width:560px){main{margin-top:30px}.messages{padding:16px;min-height:280px}.features{grid-template-columns:1fr}.brand b{font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">S</div><div><b>SHRESTH GPT</b><small>YOUR PERSONAL AI</small></div></div><div class="pill">✦ PREMIUM DEMO</div></header>
+<main>
+<section class="hero"><div class="eyebrow">WELCOME TO YOUR AI SPACE</div><h1>Think. Ask. Create.</h1><p>आपका अपना AI साथी — पढ़ाई, खाना और रोज़मर्रा के सवालों के लिए।</p></section>
+<section class="chat">
+<div class="chathead"><strong>✦ Shresth Assistant</strong><span class="online"><i class="dot"></i>Demo mode</span></div>
+<div class="messages" id="messages"><div class="msg ai">नमस्ते! मैं <b>SHRESTH GPT</b> हूँ। 😊<br>मुझसे पढ़ाई, C Programming, खाना बनाने या किसी सामान्य सवाल के बारे में पूछिए।</div></div>
+<div class="suggestions"><button onclick="quick('दाल कैसे बनती है?')">🍲 दाल की रेसिपी</button><button onclick="quick('C language क्या है?')">💻 C Programming</button><button onclick="quick('पढ़ाई की तैयारी कैसे करूँ?')">📚 Study Help</button></div>
+<form class="composer" id="form"><input id="prompt" placeholder="अपना सवाल यहाँ लिखें..." autocomplete="off"><button class="send" aria-label="Send">➤</button></form>
+</section>
+<div class="note">यह शुरुआती इंटरैक्टिव डेमो है — जवाब उदाहरणों पर आधारित हैं, लाइव AI नहीं।</div>
+<section class="features"><div class="feature"><span>📚</span><b>Study Assistant</b><small>सरल भाषा में पढ़ाई</small></div><div class="feature"><span>🍳</span><b>Cooking Assistant</b><small>आसान रेसिपी और तरीके</small></div><div class="feature"><span>🤖</span><b>General Assistant</b><small>रोज़मर्रा के सवाल</small></div></section>
+</main>
+<footer>SHRESTH GPT © 2026 · Built as a demo</footer>
+<script>
+const box=document.getElementById('messages'),input=document.getElementById('prompt');
+function answer(q){let s=q.toLowerCase();
+if(/दाल|पनीर|खाना|रेसिपी|चाय|सब्जी/.test(s))return "ज़रूर! 😊\\n\\nआसान रेसिपी के लिए:\\n1. पहले सभी सामग्री तैयार करें।\\n2. सब्ज़ी/दाल को अच्छी तरह धो लें।\\n3. कड़ाही या कुकर में तेल/घी गर्म करके जीरा और मसाले डालें।\\n4. मुख्य सामग्री और ज़रूरत के अनुसार पानी डालें।\\n5. पकने तक मध्यम आँच पर पकाएँ और स्वाद जाँचें।\\n\\nआप किस डिश की पूरी सामग्री और सही मात्रा जानना चाहते हैं?";
+if(/c language|coding|program/.test(s))return "C Language एक लोकप्रिय programming language है। इससे हम कंप्यूटर को निर्देश देते हैं।\\n\\nउदाहरण:\\n#include <stdio.h>\\nint main() {\\n  printf(\\"Hello World\\");\\n  return 0;\\n}\\n\\nयह प्रोग्राम Hello World प्रिंट करता है।";
+if(/पढ़|study|exam|aktu/.test(s))return "बिल्कुल! 📚 अपना subject और topic बताइए। मैं आसान हिंदी में समझाकर, ज़रूरत पड़ने पर exam में लिखने लायक English answer भी तैयार कर सकता हूँ।";
+return "अच्छा सवाल है! 😊 मैं SHRESTH GPT का शुरुआती Demo हूँ। अभी मेरे जवाब कुछ चुने हुए विषयों पर आधारित हैं। असली AI जवाबों के लिए बाद में सुरक्षित AI सेवा जोड़नी होगी।";
+}
+function add(text,who){let d=document.createElement('div');d.className='msg '+who;d.textContent=text;box.appendChild(d);box.scrollTop=box.scrollHeight}
+function send(q){q=q.trim();if(!q)return;add(q,'user');input.value='';setTimeout(()=>add(answer(q),'ai'),250)}
+function quick(q){send(q)}
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();send(input.value)});
+</script>
+</body></html>
